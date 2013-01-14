@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form action="/post" method="post">
+        <label>Başlık</label><br>
+        <input class="text" type="text" name="title" value="{{ data.title }}" /><br>
+        <label>Bağlantı adresi</label><br>
+        <input class="text" type="text" name="url" value="{{ data.url }}" /><br>
+        <label>Soru / yorum</label><br>
+        <textarea class="text" name="text">{{ data.text }}</textarea><br>
+        <input type="hidden" name="id" value="{{ id }}" />
+        <button type="submit">gönder</button>
+    </form>
+{% endblock %}

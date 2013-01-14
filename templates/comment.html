@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    {% if parent %}
+        <div class="comment-date small">
+            <span class="comment-star">&#9733;</span>
+            <span class="comment-points">{{ parent.points }} beğeni</span> gönderen:{{ parent.nickname }} {{ parent.date|timesince }} önce
+        </div>
+        <div class="comment-text">{{ parent.text|capfirst|linebreaksbr }}</div>
+        <br>
+    {% endif %}
+            
+    <form class="comment-form" action="/comment/{{ postid }}/{{ parentid }}/{{ depth }}/{{ id }}" method="post"> 
+        <label>Yorum</label><br>
+        <textarea class="text" name="text">{{ comment.text }}</textarea><br>
+        <button type="submit">gönder</button>
+    </form>
+            
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% ifequal user item.nickname %}
+    <div class="item-edit">
+        <a href="/post/{{ item.id }}">(düzelt)</a>
+        -
+        <a href="/post/{{ item.id }}/delete">(sil)</a>
+    </div>
+    {% endifequal %}
+    <div class="item-title">{{ item.title }}</div>
+    <div class="item-url">{{ item.url|urlize }}</div>
+    <br>
+    <br>
+    <form class="comment-form" action="/comment/{{ item.id }}" method="post">
+        <label>Yorum</label><br>
+        <textarea class="text" name="text"></textarea><br>
+        <button type="submit">gönder</button>
+    </form>
+    <br>
+    <br>
+    {% for comment in threaded %}
+    <div style="margin-left: {{ comment.depth }}em">
+        <div class="vote comment-date small">
+        {% if user %}
+            {% ifequal user comment.nickname %}
+            <span class="comment-star">&#9733;</span>
+            {% else %}
+            <a href="/upvote/comm/{{ comment.id }}">&#9650;</a><!-- &#9660; -->
+            {% endifequal %}
+        {% else %}
+            <span class="comment-star">&#9733;</span>
+        {% endif %}
+            <span class="comment-points">{{ comment.points }} beğeni</span> gönderen:{{ comment.nickname }} {{ comment.date|timesince }} önce
+        </div>
+        <div class="comment-text">{{ comment.text|capfirst|linebreaksbr }}</div>
+        <div class="comment-reply">
+        {% if user %}
+            {% ifequal user comment.nickname %}
+            <a href="/comment/{{ comment.postid }}/{{ comment.parentid }}/{{ comment.depth }}/{{ comment.id }}">(düzelt)</a>
+            -
+            <a href="/comment/{{ comment.postid }}/{{ comment.parentid }}/{{ comment.depth }}/{{ comment.id }}/delete">(sil)</a> 
+            {% else %}
+            <a href="/comment/{{ comment.postid }}/{{ comment.id }}/{{ comment.depth|add:1 }}">(cevapla)</a> 
+            {% endifequal %}
+        {% else %}
+            <a href="/comment/{{ comment.postid }}/{{ comment.id }}/{{ comment.depth|add:1 }}">(cevapla)</a> 
+        {% endif %}
+        </div>
+        <br>
+    </div>
+    {% endfor %}
+{% endblock %}

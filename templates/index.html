@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+    <table cellspacing="0">
+        {% for post in posts %}
+        <tr>
+            <td class="post-count">{{ forloop.counter }}.</td>
+            {% if user %}
+                {% ifequal user post.nickname %}
+                <td class="post-vote post-star">&#9733;</td>
+                {% else %}
+                <td class="vote post-vote"><a href="/upvote/post/{{ post.id }}">&#9650;</a><!-- &#9660; --></td>
+                {% endifequal %}
+            {% else %}
+                <td class="post-vote post-star">&#9733;</td>
+            {% endif %}
+            <td class="post-title"><a href="/item/{{ post.id }}">{{ post.title|capfirst|truncatewords:"23" }}</a> &nbsp; - &nbsp; <span class="post-link">{{ post.url|urlize }}</span></td>
+        </tr>
+        <tr>
+            <td class="post-date" colspan="2">&nbsp;</td>
+            <td class="post-date small"><span class="post-points">{{ post.points }} beğeni</span> gönderen:{{ post.nickname }} {{ post.date|timesince }} önce</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

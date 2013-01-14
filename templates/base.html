@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="tr" lang="tr">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="tr-tr" http-equiv="Content-Language" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <title>Kendine Yontanlar</title>
+    <link rel="stylesheet" type="text/css"  media="screen, projection" href="/static/css/stylesheet.css" />
+    <!--[if IE]>
+      <link rel="stylesheet" type="text/css" media="screen, projection" href="/static/css/fuckmsie.css">
+    <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="menubar">
+        <a href="/"><span style="color: #960000">&#9733;</span> Kendine Yontanlar</a> &nbsp; | &nbsp; <a href="/newest">tazeler</a> &nbsp; | &nbsp; <a href="/post">gönder</a> &nbsp; | &nbsp; {% if user %}<a href="{{ logout }}">çektir git &nbsp; {{ user }} &nbsp; {{ usermeta.points }}&#176;</a>{% else %}<a href="{{ login }}">giriş</a>{% endif %}
+    </div>
+    <div id="content">
+    {% block body %}{% endblock %}
+    </div>
+    <div id="footer"><a href="https://github.com/canerbasaran/kendineyontanlar">Kaynak Kod.</a> &nbsp; Bir <a href="http://news.ycombinator.com">Hacker News</a> çakmasıdır.</div>
+    <script type="text/javascript">
+      $('.vote a').click(function() {
+          var me = $(this);
+          $.get(me.attr('href'), function(points) {
+              if (points) {
+                if (/item/.test(window.location)) {
+                  me.next('.comment-points').html(points+' points');
+                } else {
+                  me.closest('tr').next('tr').find('.post-points').html(points+' points');
+                }
+              }
+          });
+          return false;
+      });
+    </script>
+  </body>
+</html>
