@@ -211,7 +211,7 @@ a:hover {
 #menubar {
   color: white;
   font-weight: bold;
-  background-color: #222222;
+  background-color: #ED133B;
   padding: 5px 10px
 }
 #menubar a {
@@ -239,7 +239,7 @@ a:hover {
 .post-date {
   line-height: .5em
 }
-.post-link a {
+.post-link {
   color: #cccccc
 }
 .comment-star {
