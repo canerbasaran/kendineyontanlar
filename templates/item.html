@@ -9,6 +9,7 @@
     {% endifequal %}
     <div class="item-title">{{ item.title }}</div>
     <div class="item-url">{{ item.url|urlize }}</div>
+    <div class="item-text">{{ item.text }}</div>
     <br>
     <br>
     <form class="comment-form" action="/comment/{{ item.id }}" method="post">
