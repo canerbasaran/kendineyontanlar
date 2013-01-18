@@ -256,7 +256,7 @@ a:hover {
   font-size: 1.75em;
   line-height: 1.75em
 }
-.item-url a {
+.item-url, .item-text a {
   color: #cccccc
 }
 .comment-form textarea {
