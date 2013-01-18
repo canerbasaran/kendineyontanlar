@@ -32,7 +32,9 @@ from datetime import datetime, timedelta
 from google.appengine.ext import webapp, db
 from google.appengine.ext.webapp import util, template
 from google.appengine.api import users, memcache
+from django.conf import settings
 
+settings.LANGUAGE_CODE = "tr"
 webapp.template.register_template_library('customfilters')
 
 class UserMeta(db.Model):
