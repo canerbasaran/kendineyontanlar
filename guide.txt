@@ -1,0 +1,17 @@
+Kendine Yontanlar Rehberi
+
+Ne Gönder ?
+Hacker kültürüne sahip insanlar birçok şeyi ilginç bulabilir. Umut ediyoruz ki, paylaştıklar aydın düşünceyi çoğaltacak şeyler olsun.
+
+Ne Gönderme !
+Sevimli hayvan videoları, fenomen olmadıkça siyaset, spor vb. 
+
+Gönderimler
+Başlığın öne çıkması için gereksiz büyük harf, ünlem(yazı imla) işaretleri kullanma.
+Bağlantı video veya pdf gönderimi ise başlığın sonuna [video] [pdf] ekle.
+Herzaman özgün kaynak vermeye çalış.
+Başlık içinde site adı geçiyorsa, çıkar. Çünkü yanında bağlantı adresi çıkmakta.
+Yanlış yönlendirici bir başlık olmadıkça, özgün site başlığını kullan.
+
+Yorumlar
+Medeni ol. Yüz yüze söyleyemiyeceğin şeyleri yazma.

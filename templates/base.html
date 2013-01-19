@@ -17,7 +17,7 @@
   </head>
   <body>
     <div id="menubar">
-        <a href="/"><span style="color: #960000">&#9733;</span> Kendine Yontanlar</a> &nbsp; | &nbsp; <a href="/newest">tazeler</a> &nbsp; | &nbsp; <a href="/post">gönder</a> &nbsp; | &nbsp; {% if user %}<a href="{{ logout }}">çıkış &nbsp; {{ user }} &nbsp; {{ usermeta.points }}&#176;</a>{% else %}<a href="{{ login }}">giriş</a>{% endif %}
+        <a href="/"><span style="color: #960000">&#9733;</span> Kendine Yontanlar</a> &nbsp; | &nbsp; <a href="/newest">tazeler</a> &nbsp; | &nbsp; <a href="/post">gönder</a> &nbsp; | &nbsp; {% if user %}<a href="{{ logout }}">çıkış &nbsp; {{ user }} &nbsp; {{ usermeta.points }}&#176;</a>{% else %}<a href="{{ login }}">giriş</a>{% endif %} &nbsp; | &nbsp; <a href="/guide.txt">kullanıcı rehberi</a>
     </div>
     <div id="content">
     {% block body %}{% endblock %}

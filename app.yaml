@@ -12,6 +12,10 @@ handlers:
   
 - url: /static
   static_dir: static
+
+- url: /guide.txt
+  static_files: guide.txt
+  upload: guide.txt
   
 - url: .*
   script: main.py
