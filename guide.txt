@@ -14,4 +14,4 @@ Başlık içinde site adı geçiyorsa, çıkar. Çünkü yanında bağlantı adr
 Yanlış yönlendirici bir başlık olmadıkça, özgün site başlığını kullan.
 
 Yorumlar
-Medeni ol. Yüz yüze söyleyemiyeceğin şeyleri yazma.
+Medeni ol. Yüz yüze söyleyemeyeceğin şeyleri yazma.
