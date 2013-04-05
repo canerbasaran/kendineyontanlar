@@ -27,6 +27,7 @@
 #  or implied, of Matthew Smith.
 #
 #  Matthew Smith <mbenjaminsmith@gmail.com>
+#  Caner Başaran <basaran.caner@gmail.com>, 2012, 2013
 
 from datetime import datetime, timedelta
 from google.appengine.ext import webapp, db
@@ -105,12 +106,12 @@ class MainHandler(BaseHandler):
     else:
       posts = memcache.get('posts-ranked')
       if posts is None:
-        posts = Post.all().order('-date').fetch(200)
+        posts = Post.all().order('-date').fetch(30)
         tosort = [(rank(p), p.date, p) for p in posts]
         tosort.sort()
         tosort.reverse()
         posts = [p for _, _, p in tosort]
-        memcache.set('posts-ranked', posts, 600)
+        memcache.set('posts-ranked', posts, 30)
     for post in posts:
       post.nickname = post.user.nickname()
       post.id = post.key().id()
